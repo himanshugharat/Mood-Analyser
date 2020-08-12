@@ -18,4 +18,15 @@ public class MoodAnalyserTest {
         Assert.assertEquals("HAPPY", mood);
     }
 
+    @Test
+    public void GivenNullMessage_ShouldHandleExecption() {
+        try {
+            MoodAnalyser moodAnalyser = new MoodAnalyser("this is Happy mood");
+            String mood = moodAnalyser.AnalyseMood(null);
+            Assert.assertEquals("HAPPY", mood);
+        } catch (MoodAnalyserException e) {
+            e.getMessage();
+        }
+    }
+
 }
