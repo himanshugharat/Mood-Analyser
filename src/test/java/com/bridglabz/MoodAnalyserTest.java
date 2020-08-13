@@ -23,10 +23,18 @@ public class MoodAnalyserTest {
         try {
             MoodAnalyser moodAnalyser = new MoodAnalyser("this is Happy mood");
             String mood = moodAnalyser.AnalyseMood(null);
-            Assert.assertEquals("HAPPY", mood);
+
         } catch (MoodAnalyserException e) {
-            e.getMessage();
+            Assert.assertEquals("Null Parameter Is Passed", e.getMessage());
         }
     }
-
+    @Test
+    public void givenMood_WhenEmptyMessage_ShouldReturnReturnHappy() {
+        try {
+            MoodAnalyser moodAnalyser = new MoodAnalyser("");
+            String mood = moodAnalyser.AnalyseMood();
+        } catch (MoodAnalyserException e) {
+            Assert.assertEquals("Empty Parameter Is Passed", e.getMessage());
+        }
+    }
 }
